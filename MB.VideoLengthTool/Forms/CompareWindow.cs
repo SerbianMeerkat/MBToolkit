@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using MB.VideoLengthTool.Controls;
+using System.IO;
 
 namespace MB.VideoLengthTool.Forms
 {
@@ -97,6 +98,8 @@ namespace MB.VideoLengthTool.Forms
                 dialog.Filter = "Excel Spreadsheet (*.xlsx)|*.xlsx";
                 dialog.AddExtension = true;
 
+                dialog.FileName = Path.GetFileNameWithoutExtension(schema.filePath);
+
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     CreateSpreadsheet(dialog.FileName);
@@ -121,6 +124,7 @@ namespace MB.VideoLengthTool.Forms
             worksheet.Cells[1, 1] = "Name";
             worksheet.Cells[1, 2] = "Start Time";
             worksheet.Cells[1, 3] = "Diff";
+            worksheet.Cells[1, 4] = "Video Path";
 
             int i = 2;
 
@@ -129,17 +133,31 @@ namespace MB.VideoLengthTool.Forms
                 worksheet.Cells[i, 1] = control.schemaItem.Name;
                 worksheet.Cells[i, 2] = control.schemaItem.Time.ToString("g");
                 worksheet.Cells[i, 3] = control.Difference.ToString("g");
+                worksheet.Cells[i, 4] = control.selectedFile;
 
                 i++;
             }
 
-            workbook.SaveAs(filePath);
-            workbook.Close(true);
-            xlApp.Quit();
+            try
+            {
+                workbook.SaveAs(filePath);
+                workbook.Close(true);
+                xlApp.Quit();
 
-            Marshal.ReleaseComObject(worksheet);
-            Marshal.ReleaseComObject(workbook);
-            Marshal.ReleaseComObject(xlApp);
+                Marshal.ReleaseComObject(worksheet);
+                Marshal.ReleaseComObject(workbook);
+                Marshal.ReleaseComObject(xlApp);
+            } 
+            catch(Exception e)
+            {
+                if(MessageBox.Show($"Excel error: {e.Message}", "Excel error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
+                {
+                    CreateSpreadsheet(filePath);
+                    return;
+                }
+            }
+
+            MessageBox.Show($"Exported spreadsheet successfully ({filePath})", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void spreadsheetButton_Click(object sender, EventArgs e)

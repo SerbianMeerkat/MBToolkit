@@ -6,30 +6,55 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MBCore;
 
 namespace MB.VideoLengthTool
 {
-    internal static class Program
+    public static class Program
     {
         public static string[] arguments;
+
+        static Timer timer;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        public static void Main(params string[] args)
         {
             arguments = args;
 
             RegisterForFileExtension(".hschema", Application.ExecutablePath);
 
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new App());
-        }
+            try { Application.SetCompatibleTextRenderingDefault(false); } catch { }
+            Application.Run(new SplashScreen("VIDEO LENGTH TOOL", Properties.Resources.icon, System.Drawing.Color.White, () =>
+            {
+                bool regularLaunch = true;
 
-        public static void Close()
-        {
-            App.singleton.Close();
+                foreach (string arg in Program.arguments)
+                {
+                    if (arg.EndsWith(".hschema"))
+                    {
+                        CompareWindow.Open(Schema.LoadFromFile(arg));
+                        regularLaunch = false;
+                    }
+                }
+
+                if (regularLaunch)
+                    new LandingPage().Show();
+
+                timer = new Timer();
+
+                timer.Tick += (s, a) =>
+                {
+                    if (Application.OpenForms.Cast<Form>().Where(x => x.Visible == true).Count() == 0)
+                        Application.Exit();
+                };
+
+                timer.Interval = 100;
+                timer.Enabled = true;
+            }));
         }
 
         private static void RegisterForFileExtension(string extension, string applicationPath)

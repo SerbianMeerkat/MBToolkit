@@ -64,12 +64,6 @@
     <Compile Include="Controls\SchemaItemControl.Designer.cs">
       <DependentUpon>SchemaItemControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\App.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\App.Designer.cs">
-      <DependentUpon>App.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\CompareWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,9 +91,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SchemaItemControl.resx">
       <DependentUpon>SchemaItemControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\App.resx">
-      <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CompareWindow.resx">
       <DependentUpon>CompareWindow.cs</DependentUpon>
@@ -133,12 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MBCore\MBCore.csproj">
-      <Project>{244822e8-231e-4d2e-b271-c6621efb5720}</Project>
-      <Name>MBCore</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MB_TransBlackCropped.png" />
@@ -186,6 +171,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MBCore\MBCore.csproj">
+      <Project>{244822e8-231e-4d2e-b271-c6621efb5720}</Project>
+      <Name>MBCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

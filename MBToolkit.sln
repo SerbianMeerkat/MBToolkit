@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MB.VideoLengthTool", "MB.Vi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBCore", "MBCore\MBCore.csproj", "{244822E8-231E-4D2E-B271-C6621EFB5720}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBToolkit", "MBToolkit\MBToolkit.csproj", "{59628ABC-4EEC-4B5D-BD3F-3146614CA415}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{244822E8-231E-4D2E-B271-C6621EFB5720}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{244822E8-231E-4D2E-B271-C6621EFB5720}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{244822E8-231E-4D2E-B271-C6621EFB5720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59628ABC-4EEC-4B5D-BD3F-3146614CA415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59628ABC-4EEC-4B5D-BD3F-3146614CA415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59628ABC-4EEC-4B5D-BD3F-3146614CA415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59628ABC-4EEC-4B5D-BD3F-3146614CA415}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
