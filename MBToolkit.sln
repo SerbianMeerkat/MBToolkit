@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32317.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MB.VideoLengthTool", "MB.VideoLengthTool\MB.VideoLengthTool.csproj", "{FAD5DEB7-087B-4731-9FF6-AA747E2AACD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MBCore", "MBCore\MBCore.csproj", "{244822E8-231E-4D2E-B271-C6621EFB5720}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAD5DEB7-087B-4731-9FF6-AA747E2AACD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD5DEB7-087B-4731-9FF6-AA747E2AACD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD5DEB7-087B-4731-9FF6-AA747E2AACD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD5DEB7-087B-4731-9FF6-AA747E2AACD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{244822E8-231E-4D2E-B271-C6621EFB5720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{244822E8-231E-4D2E-B271-C6621EFB5720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{244822E8-231E-4D2E-B271-C6621EFB5720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{244822E8-231E-4D2E-B271-C6621EFB5720}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFE48A09-DD73-43EA-991F-58B0C31BD367}
+	EndGlobalSection
+EndGlobal
